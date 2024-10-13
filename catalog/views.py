@@ -144,13 +144,13 @@ class AuthorDelete(PermissionRequiredMixin, DeleteView):
         
 class BookCreate(PermissionRequiredMixin, CreateView):
     model = Book
-    fields = '__all__'
+    fields = ['title', 'author', 'summary', 'isbn', 'genre']
     permission_required = 'catalog.add_book'
 
 class BookUpdate(PermissionRequiredMixin, UpdateView):
     model = Book
     # Not recommended (potential security issue if more fields added)
-    fields = '__all__'
+    fields = ['title', 'author', 'summary', 'isbn', 'genre']
     permission_required = 'catalog.change_book'
 
 class BookDelete(PermissionRequiredMixin, DeleteView):
